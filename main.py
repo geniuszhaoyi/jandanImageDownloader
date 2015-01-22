@@ -99,7 +99,7 @@ if __name__ == '__main__':
     f=open('index.txt','a')
     fe=open('errorlog.txt','a')
     
-    for i in range(1056,1315):
+    for i in range(1315,1316):
         try:
             downPage(i)
         except Exception, e:
