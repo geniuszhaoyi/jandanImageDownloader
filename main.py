@@ -10,7 +10,8 @@ import re, time, os
 import uuid
 
 #全局变量
-f=open('index.txt','a')
+f=0
+fe=0
 image = urllib.URLopener()
 
 #获取html文本
@@ -91,13 +92,17 @@ def downPage(page):
             f.write(getName(a[0])+'\t'+oxs[0]+'\t'+oxs[1]+'\t'+a[0]+'\t'+str(page)+'\n')
             print oxs[0]+','+oxs[1]+'\t'+a[0]
         except Exception, e:
+            fe.write('Download Error:\t'+a[0]+'\n')
             print 'Download Error: '+a[0]
 
 if __name__ == '__main__':
-    for i in range(902,1315):
+    f=open('index.txt','a')
+    fe=open('errorlog.txt','a')
+    
+    for i in range(1056,1315):
         try:
             downPage(i)
         except Exception, e:
             print 'DownPage Error: '+str(i)
-            
-f.close()
+    f.close()
+    fe.close()
